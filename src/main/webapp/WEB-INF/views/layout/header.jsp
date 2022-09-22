@@ -19,8 +19,8 @@
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item"><a class="nav-link" href="/stadium/saveForm">야구장 목록보기</a></li>
 					<li class="nav-item"><a class="nav-link" href="/stadium">야구장 등록</a></li>
-					<li class="nav-item"><a class="nav-link" href="/team/saveForm">팀 목록보기</a></li>
-					<li class="nav-item"><a class="nav-link" href="/team">팀 등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/team">팀 목록보기</a></li>
+					<li class="nav-item"><a class="nav-link" href="/team/saveForm">팀 등록</a></li>
 					<li class="nav-item"><a class="nav-link" href="/player/saveForm">선수 목록보기</a></li>
 					<li class="nav-item"><a class="nav-link" href="/player">선수 등록</a></li>
 					<li class="nav-item"><a class="nav-link" href="/player/kickOut">퇴출선수 목록</a></li>					
