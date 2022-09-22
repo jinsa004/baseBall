@@ -9,6 +9,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class playerController {
 
+	@GetMapping("/player/kickOut")
+	public String kickOut() {
+		return "player/kickOut";
+	}
+	
 	@GetMapping("/player/saveForm")
 	public String saveForm() {
 		return "player/playerSaveForm";

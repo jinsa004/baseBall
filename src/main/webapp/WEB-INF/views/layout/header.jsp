@@ -23,6 +23,7 @@
 					<li class="nav-item"><a class="nav-link" href="/team">팀 등록</a></li>
 					<li class="nav-item"><a class="nav-link" href="/player/saveForm">선수 목록보기</a></li>
 					<li class="nav-item"><a class="nav-link" href="/player">선수 등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/player/kickOut">퇴출선수 목록</a></li>					
 				</ul>
 			</div>
 		</div>
