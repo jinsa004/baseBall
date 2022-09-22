@@ -9,14 +9,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class teamController {
 
-	@GetMapping("/team/saveForm")
+	@GetMapping("/teams/saveForm")
 	public String saveForm() {
-		return "team/teamSaveForm";
+		return "teams/teamSaveForm";
 	}
 	
-	@GetMapping("/team")
+	@GetMapping("/teams")
 	public String main() {
-		return "team/teamList";
+		return "teams/teamList";
 	}
 	
 	@GetMapping("/")

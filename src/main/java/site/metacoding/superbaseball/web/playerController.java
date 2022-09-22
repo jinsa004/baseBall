@@ -9,18 +9,18 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class playerController {
 
-	@GetMapping("/player/kickOut")
+	@GetMapping("/players/kickOut")
 	public String kickOut() {
-		return "player/kickOut";
+		return "players/kickOut";
 	}
 	
-	@GetMapping("/player/saveForm")
+	@GetMapping("/players/saveForm")
 	public String saveForm() {
-		return "player/playerSaveForm";
+		return "players/playerSaveForm";
 	}
 	
-	@GetMapping("/player")
+	@GetMapping("/players")
 	public String main() {
-		return "player/playerList";
+		return "players/playerList";
 	}
 }

@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
-
 <div class="container mt-3">
 	<select class="form-select">
 		<option>잠실 야구장</option>
@@ -18,4 +17,5 @@
 	</div>
 	<button type="button" class="btn btn-success">등록완료</button>
 </div>
+
 <%@ include file="../layout/footer.jsp"%>
