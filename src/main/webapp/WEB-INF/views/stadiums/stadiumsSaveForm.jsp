@@ -1,33 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
+<form>
+	<div class="container mt-3">
+		<div class="mb-3 mt-3">
+			<h3>Stadium name :</h3>
+			<input id="name" type="text" class="form-control" placeholder="Enter name">
+		</div>
+		<button id="btnStadiumsSave" type="button" class="btn btn-success">등록완료</button>
+	</div>
+</form>
 
-<div class="container mt-3">
-	<h2>Stardium Table</h2>
-	<p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>위치</th>
-				<th>야구장명</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>서울</td>
-				<td>Doe</td>
+<script>
 
-			</tr>
-			<tr>
-				<td>부산</td>
-				<td>Moe</td>
+$("#btnStadiumsSave").click(()=>{
 
-			</tr>
-			<tr>
-				<td>광주</td>
-				<td>Dooley</td>
+	let name = $("#name").val();
 
-			</tr>
-		</tbody>
-	</table>
-</div>
+	$.ajax("/stadiums/save", {
+		type: "POST",
+		dataType: "json",
+		data: JSON.stringify(name),
+		headers: {
+			"Content-Type": "application/json; charset=utf-8" //헤더에 바디의 데이터가 json이라는 것을 담아주는 것, MIME 타입 검색해서 보기
+		}
+	}).done((res) => {
+		if (res.code == 1) {
+			location.href = "/stadiums";
+		} else {
+		}
+	});
+});
+
+</script>
+
 <%@ include file="../layout/footer.jsp"%>

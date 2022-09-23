@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class playerController {
+public class playersController {
 
 	@GetMapping("/player/kickOut")
 	public String kickOut() {

@@ -2,11 +2,23 @@
 <%@ include file="../layout/header.jsp"%>
 
 <div class="container mt-3">
-	<select class="form-select">
-		<option>잠실 야구장</option>
-		<option>사직 야구장</option>
-		<option>월명 야구장</option>
-	</select>
-	<button type="button" class="btn btn-success">등록완료</button>
+	<h2>Stardium Table</h2>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>구장번호</th>
+				<th>야구장명</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="stadiums" items="${stadiums}">
+				<tr>
+					<td>${stadiums.id}</td>
+					<td>${stadiums.stadiumsName}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </div>
+
 <%@ include file="../layout/footer.jsp"%>

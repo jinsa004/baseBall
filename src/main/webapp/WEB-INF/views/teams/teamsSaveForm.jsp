@@ -1,35 +1,44 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
-
 <div class="container mt-3">
-  <h2>Team Table</h2>
-  <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>            
-  <table class="table">
-    <thead>
-      <tr>
-        <th>팀 이름</th>
-        <th>위치</th>
-        <th>해당 스타디움</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>두산</td>
-        <td>서울</td>
-        <td>잠실 야구장</td>
-      </tr>
-      <tr>
-        <td>롯데</td>
-        <td>부산</td>
-        <td>사직 야구장</td>
-      </tr>
-      <tr>
-        <td>기아</td>
-        <td>광주</td>
-        <td>월명 야구장</td>
-      </tr>
-    </tbody>
-  </table>
+	<h3>Stadium name :</h3>
+	<select id="stadiumsId" onchange="selectBoxChange(this.value);" class="form-select">
+		<c:forEach var="stadiums" items="${stadiums}">
+			<option value="${stadiums.id}">${stadiums.stadiumsName}</option>
+		</c:forEach>
+	</select>
+	<form>
+		<div class="container mt-3">
+			<div class="mb-3 mt-3">
+				<h3>Team name :</h3>
+				<input id="teamsName" type="text" class="form-control" placeholder="Enter name">
+			</div>
+			<button id="btnTeamsSave" type="button" class="btn btn-success">등록완료</button>
+		</div>
+	</form>
 </div>
+
+<script>
+$("#btnTeamsSave").click(()=>{
+
+	let data = {
+			teamsName: $("#teamsName").val(),
+			stadiumsId: $("#stadiumsId").val()
+		};
+
+	$.ajax("/teams/save", {
+		type: "POST",
+		dataType: "json",
+		data: JSON.stringify(data),
+		headers: {
+			"Content-Type": "application/json; charset=utf-8"
+		}
+	}).done((res) => {
+		if (res.code == 1) {
+			location.href = "/teams";
+		} else {
+		}
+	});
+});
+</script>
 <%@ include file="../layout/footer.jsp"%>

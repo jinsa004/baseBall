@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="site.metacoding.superbaseball.domain.teams.TeamsDao">
+
+	<insert id="insert">
+		INSERT INTO teams(teamsName, stadiumsId, createdAt)
+		VALUES(#{teamsName}, #{stadiumsId}, now())
+	</insert>
+
+	<select id="findById" resultType="site.metacoding.superbaseball.domain.teams.Teams">
+		SELECT * FROM teams
+		WHERE id=#{id}
+	</select>
+
+	<select id="findAll" resultType="site.metacoding.superbaseball.web.dto.response.teams.TeamsDto">
+		SELECT T.id ,T.teamsName, S.stadiumsName
+		FROM teams T INNER JOIN stadiums S ON T.stadiumsId = S.id
+	</select>
+
+	<update id="update">
+		UPDATE teams SET teamsName = #{teamsName} WHERE id =#{id}
+	</update>
+
+	<delete id="deleteById">
+		DELETE FROM teams WHERE id = #{id}
+	</delete>
+
+</mapper>
