@@ -14,7 +14,7 @@
     <tbody>
       <c:forEach var="TeamsDtos" items="${TeamsDtos}">
 				<tr>
-					<td>${TeamsDtos.id}</td>
+					<td>${TeamsDtos.rankedId}</td>
 					<td>${TeamsDtos.teamsName}</td>
 					<td>${TeamsDtos.stadiumsName}</td>
 				</tr>

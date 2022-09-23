@@ -30,7 +30,8 @@
 					<li class="nav-item"><a class="nav-link" href="/teams/saveForm">팀 등록</a></li>
 					<li class="nav-item"><a class="nav-link" href="/players">선수 목록보기</a></li>
 					<li class="nav-item"><a class="nav-link" href="/players/saveForm">선수 등록</a></li>
-					<li class="nav-item"><a class="nav-link" href="/players/kickOut">퇴출선수 목록</a></li>					
+					<li class="nav-item"><a class="nav-link" href="/players/kickOut">퇴출선수 목록</a></li>	
+					<li class="nav-item"><a class="nav-link" href="/players/kickOutSaveForm">선수 퇴출하기</a></li>				
 				</ul>
 			</div>
 		</div>

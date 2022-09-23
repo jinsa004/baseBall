@@ -8,11 +8,20 @@ import lombok.RequiredArgsConstructor;
 import site.metacoding.superbaseball.domain.players.Players;
 import site.metacoding.superbaseball.domain.players.PlayersDao;
 import site.metacoding.superbaseball.web.dto.request.UpdateDto;
+import site.metacoding.superbaseball.web.dto.response.players.KickOutDto;
 
 @Service
 @RequiredArgsConstructor
 public class PlayersService {
 	private final PlayersDao playersDao;
+	
+	public void 선수퇴출하기(KickOutDto kickOutDto) {
+		playersDao.kickOut(kickOutDto);
+	}
+	
+	public List<KickOutDto> 퇴출선수목록보기() {
+		return playersDao.findKickOutAll();
+	}
 	
 	public void 선수변경하기(Integer id, UpdateDto updateDto) {
 		Players playersPS = playersDao.findById(id);

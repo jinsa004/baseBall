@@ -16,7 +16,7 @@
 	</select>
 
 	<select id="findAll" resultType="site.metacoding.superbaseball.web.dto.response.teams.TeamsDto">
-		SELECT T.id ,T.teamsName, S.stadiumsName
+		SELECT T.id ,T.teamsName, S.stadiumsName, ROW_NUMBER() OVER(order by id) AS rankedId
 		FROM teams T INNER JOIN stadiums S ON T.stadiumsId = S.id
 	</select>
 

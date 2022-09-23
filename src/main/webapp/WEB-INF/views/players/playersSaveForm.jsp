@@ -1,35 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
-
 <div class="container mt-3">
-  <h2>Player Table</h2>
-  <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>            
-  <table class="table">
-    <thead>
-      <tr>
-        <th>소속팀</th>
-        <th>선수명</th>
-        <th>포지션</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>두산</td>
-        <td>Doe</td>
-        <td>내야수</td>
-      </tr>
-      <tr>
-        <td>롯데</td>
-        <td>Moe</td>
-        <td>외야수</td>
-      </tr>
-      <tr>
-        <td>기아</td>
-        <td>Dooley</td>
-        <td>타자</td>
-      </tr>
-    </tbody>
-  </table>
+	<select id="teamsId" onchange="selectBoxChange(this.value);" class="form-select">
+		<c:forEach var="teams" items="${teams}">
+			<option value="${teams.id}">${teams.teamsName}</option>
+		</c:forEach>
+	</select> 
+	<div class="mb-3 mt-3">
+		<label for="text" class="form-label">포지션 : </label> 
+		<input id ="position" type="text" class="form-control" placeholder="Enter name">
+		<label for="text" class="form-label">선수명 : </label> 
+		<input id ="playersName" type="text" class="form-control" placeholder="Enter name">
+	</div>
+	<button id="btnPlayersSave" type="button" class="btn btn-success">등록완료</button>
 </div>
+
+<script>
+$("#btnPlayersSave").click(()=>{
+
+	let data = {
+			playersName: $("#playersName").val(),
+			teamsId : $("#teamsId").val(),
+			position : $("#position").val()
+		};
+
+	$.ajax("/players/save", {
+		type: "POST",
+		dataType: "json",
+		data: JSON.stringify(data),
+		headers: {
+			"Content-Type": "application/json; charset=utf-8"
+		}
+	}).done((res) => {
+		if (res.code == 1) {
+			location.href = "/players";
+		} else {
+		}
+	});
+});
+</script>
 <%@ include file="../layout/footer.jsp"%>

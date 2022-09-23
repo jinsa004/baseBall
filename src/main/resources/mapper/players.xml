@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="site.metacoding.superbaseball.domain.players.PlayersDao">
+
+	<insert id="insert">
+		INSERT INTO players(playersName, teamsId, position, createdAt)
+		VALUES(#{playersName}, #{teamsId}, #{position},now())
+	</insert>
+
+	<select id="findById" resultType="site.metacoding.superbaseball.domain.players.Players">
+		SELECT * FROM players
+		WHERE id=#{id}
+	</select>
+
+	<select id="findAll" resultType="site.metacoding.superbaseball.web.dto.response.players.PlayersDto">
+		SELECT t.teamsName , p.playersName, p.position
+		FROM players p INNER JOIN teams t ON p.teamsId = t.id;
+	</select>
+	
+	<select id="findKickOutAll" resultType="site.metacoding.superbaseball.web.dto.response.players.KickOutDto">
+		SELECT t.teamsName, p.playersName, k.reason, k.createdAt
+		FROM kickout k LEFT OUTER JOIN players p ON k.playersId = p.id
+		LEFT OUTER JOIN teams t ON k.teamsId = t.id
+	</select>
+
+	<select id="kickOut">
+		INSERT INTO kickout(playersId, teamsId, reason, createdAt)
+		VALUES(#{playersId}, #{teamsId}, #{reason},now())
+	</select>
+
+	<update id="update">
+		UPDATE players SET teamsId = #{teamsId}, position = #{position} WHERE id =#{id}
+	</update>
+
+	<delete id="deleteById">
+		DELETE FROM players WHERE id = #{id}
+	</delete>
+
+</mapper>
